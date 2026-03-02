@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+// แบบ Prisma 7 ที่เราตั้งค่ากันไว้ (ไม่มี url)
+datasource db {
+  provider = "sqlite"
+}
+
+// 1. ตารางผู้ใช้งาน
+model User {
+  id       Int    @id @default(autoincrement())
+  username String @unique // ห้ามตั้งชื่อซ้ำกัน
+  password String 
+  books    Book[] // ความสัมพันธ์: 1 ยูสเซอร์ มีหนังสือได้หลายเล่ม
+}
+
+
+model Book {
+  id        Int      @id @default(autoincrement())
+  title     String
+  author    String
+  status    String   @default("ยังไม่อ่าน")
+  // ลบบรรทัด imageUrl ออกแล้วครับ
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    Int
+}
