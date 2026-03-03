@@ -2,13 +2,13 @@
   "name": "my-book-inventory",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "prisma generate && prisma db push --accept-data-loss && next build",
-    "start": "next start",
-    "lint": "next lint",
-    "postinstall": "prisma generate"
-  },
+"scripts": {
+  "dev": "next dev",
+  "build": "prisma generate && prisma db push --accept-data-loss && next build",
+  "start": "next start",
+  "lint": "next lint",
+  "postinstall": "prisma generate"
+},
   "dependencies": {
     "@prisma/client": "^7.4.2",
     "prisma": "^7.4.2",
