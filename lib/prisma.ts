@@ -1,15 +1,12 @@
 import { PrismaClient } from '@prisma/client'
-import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3'
 
 const prismaClientSingleton = () => {
-  // กฎใหม่ของ Prisma 7: ส่ง url ให้ Adapter โดยตรง
-  const adapter = new PrismaBetterSqlite3({ url: 'file:./dev.db' })
-  return new PrismaClient({ adapter })
+  return new PrismaClient()
 }
 
-declare const globalThis: {
-  prismaGlobal: ReturnType<typeof prismaClientSingleton>;
-} & typeof global;
+declare global {
+  var prismaGlobal: undefined | ReturnType<typeof prismaClientSingleton>
+}
 
 const prisma = globalThis.prismaGlobal ?? prismaClientSingleton()
 
