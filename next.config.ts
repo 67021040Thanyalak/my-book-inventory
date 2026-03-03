@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   typescript: {
-    ignoreBuildErrors: true, // ตัวนี้แหละจะทำให้ผ่าน
+    ignoreBuildErrors: true, 
   },
   eslint: {
     ignoreDuringBuilds: true,
