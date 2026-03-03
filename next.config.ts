@@ -1,11 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  /* config options here */
   typescript: {
-    // บังคับให้ Build ผ่านแม้ TypeScript จะบ่นเรื่อง PrismaClient
+    // บังคับให้ผ่านแม้จะหา PrismaClient ไม่เจอตอนตรวจโค้ด
     ignoreBuildErrors: true,
   },
   eslint: {
-    // ข้ามการตรวจ Lint ตอน Build
+    // ข้ามการตรวจ Lint เพื่อไม่ให้เสียเวลาและลดโอกาสเกิด Error
     ignoreDuringBuilds: true,
   },
 };
